@@ -67,6 +67,7 @@ public class MainController {
                 updateProgressBar(progress);
                 Workbook workbook;
                 try {
+                    //noinspection resource
                     workbook = new XSSFWorkbook(curFile);
                 } catch (IOException | InvalidFormatException e) {
                     throw new RuntimeException(e);

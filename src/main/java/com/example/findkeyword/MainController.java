@@ -77,7 +77,7 @@ public class MainController {
 
                     for (Row row : sheet) {
                         if (row.getCell(9).getCellType() == CellType.NUMERIC) {
-                            if (row.getCell(9).getNumericCellValue() == messageNumber && row.getCell(4) != null) {
+                            if (row.getCell(9).getNumericCellValue() == messageNumber && row.getCell(4) != null && row.getCell(3).getRichStringCellValue().getString().equals("UserMessage")) {
                                 String string = row.getCell(4).getRichStringCellValue().getString().replaceAll("[-+.^:,!?()>\n\"{}\t]", "");
                                 string = string.toLowerCase();
                                 String[] rowString = string.split(" ");

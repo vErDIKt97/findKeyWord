@@ -22,8 +22,8 @@
          <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="585.0" progress="0.0" />
       </HBox>
    </bottom>
-   <top>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+   <center>
+      <HBox alignment="CENTER" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
          <VBox alignment="CENTER" style="-fx-border-color: black;">
             <HBox.margin>
                <Insets />
@@ -68,5 +68,5 @@
             </HBox.margin>
          </TableView>
       </HBox>
-   </top>
+   </center>
 </BorderPane>

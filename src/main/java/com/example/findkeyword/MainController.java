@@ -45,6 +45,8 @@ public class MainController {
         curFile = fileChooser.showOpenDialog(new Stage());
         if (curFile != null) {
             filePath.setText(curFile.getPath());
+        } else {
+            filePath.setText("");
         }
     }
 

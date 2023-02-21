@@ -36,7 +36,9 @@ public class MainController {
     public TableColumn<String, String> word;
     public ProgressBar progressBar;
     public ChoiceBox<Integer> lineNumber;
-
+    private final int cellMessageNumber = 9;
+    private final int cellTextNumber = 4;
+    private final int cellTypeMessageNumber = 3;
     @FXML
     private TextField filePath;
 
@@ -79,9 +81,11 @@ public class MainController {
                     Sheet sheet = workbook.getSheetAt(sheetNumber.getValue() - 1);
 
                     for (Row row : sheet) {
-                        if (row.getCell(9).getCellType() == CellType.NUMERIC) {
-                            if (row.getCell(9).getNumericCellValue() == messageNumber && row.getCell(4) != null && row.getCell(3).getRichStringCellValue().getString().equals("UserMessage")) {
-                                String string = row.getCell(4).getRichStringCellValue().getString().replaceAll("[-+.^:,!?()>\n\"{}\t]", "");
+                        if (row.getCell(cellMessageNumber).getCellType() == CellType.NUMERIC) {
+                            if (row.getCell(cellMessageNumber).getNumericCellValue() == messageNumber &&
+                                    row.getCell(cellTextNumber) != null &&
+                                    row.getCell(cellTypeMessageNumber).getRichStringCellValue().getString().equals("UserMessage")) {
+                                String string = row.getCell(cellTextNumber).getRichStringCellValue().getString().replaceAll("[-+.^:,!?()>\n\"{}\t]", "");
                                 string = string.toLowerCase();
                                 String[] rowString = string.split(" ");
                                 for (String s : rowString) {

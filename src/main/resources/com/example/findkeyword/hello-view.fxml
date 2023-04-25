@@ -5,6 +5,8 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,60 +15,144 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findkeyword.MainController">
-   <bottom>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </BorderPane.margin>
-         <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="585.0" progress="0.0" />
-      </HBox>
-   </bottom>
-   <center>
-      <HBox alignment="CENTER" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
-         <VBox alignment="CENTER" style="-fx-border-color: black;">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets left="10.0" right="10.0" />
-            </padding>
-            <HBox alignment="CENTER" prefHeight="100.0">
-               <TextField fx:id="filePath" editable="false" />
-               <Button fx:id="browseFile" mnemonicParsing="false" onMouseClicked="#browseFile" text="Выбрать файл" />
-            </HBox>
-            <Label text="Номер листа с выгрузкой">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-            <ChoiceBox fx:id="sheetNumber" onMouseClicked="#debug">
-               <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </VBox.margin>
-            </ChoiceBox>
-            <Label text="Номер сообщения для выборки" />
-            <ChoiceBox fx:id="lineNumber" onMouseClicked="#debug">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-            </ChoiceBox>
-         </VBox>
-         <StackPane style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
-            <padding>
-               <Insets left="10.0" right="10.0" />
-            </padding>
-            <Button fx:id="start" mnemonicParsing="false" onMouseClicked="#startAnalytics" text="Загрузить" />
-         </StackPane>
-         <TableView fx:id="tableKeyWord" HBox.hgrow="ALWAYS">
-            <columns>
-               <TableColumn fx:id="count" prefWidth="75.0" text="Количество" />
-               <TableColumn fx:id="word" prefWidth="75.0" text="Слово" />
-            </columns>
-            <HBox.margin>
-               <Insets left="10.0" right="10.0" />
-            </HBox.margin>
-         </TableView>
-      </HBox>
-   </center>
-</BorderPane>
+<TabPane tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.findkeyword.MainController">
+    <Tab text="Chat's">
+        <BorderPane fx:id="mainPane">
+            <bottom>
+                <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </BorderPane.margin>
+                    <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="585.0" progress="0.0" />
+                </HBox>
+            </bottom>
+            <center>
+                <HBox alignment="CENTER" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+                    <VBox alignment="CENTER" style="-fx-border-color: black;">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0">
+                            <TextField fx:id="filePath" editable="false" />
+                            <Button fx:id="browseFile" mnemonicParsing="false" onMouseClicked="#browseFile" text="Выбрать файл" />
+                        </HBox>
+                        <Label text="Номер листа с выгрузкой">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="sheetNumber" onMouseClicked="#debug">
+                            <VBox.margin>
+                                <Insets bottom="10.0" top="5.0" />
+                            </VBox.margin>
+                        </ChoiceBox>
+                        <Label text="Номер сообщения для выборки">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin></Label>
+                        <ChoiceBox fx:id="lineNumber" onMouseClicked="#debug">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </ChoiceBox>
+                  <Label text="Кол-во слов по порядку">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin></Label>
+                  <ChoiceBox fx:id="countWordSequence" onMouseClicked="#debug">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin></ChoiceBox>
+                  <Label text="Сообщение от">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ChoiceBox fx:id="fromUser">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+                    </VBox>
+                    <StackPane style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <Button fx:id="start" mnemonicParsing="false" onMouseClicked="#startAnalytics" text="Загрузить" />
+                    </StackPane>
+                    <TableView fx:id="tableKeyWord" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="count" prefWidth="75.0" text="Количество" />
+                            <TableColumn fx:id="word" prefWidth="75.0" text="Слово" />
+                        </columns>
+                        <HBox.margin>
+                            <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                    </TableView>
+                </HBox>
+            </center>
+        </BorderPane>
+    </Tab>
+    <Tab text="Incident solution">
+        <BorderPane fx:id="mainPaneSolution">
+            <bottom>
+                <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </BorderPane.margin>
+                    <ProgressBar fx:id="progressBarSolution" prefHeight="18.0" prefWidth="585.0" progress="0.0" />
+                </HBox>
+            </bottom>
+            <center>
+                <HBox alignment="CENTER" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+                    <VBox alignment="CENTER" style="-fx-border-color: black;">
+                        <HBox.margin>
+                            <Insets />
+                        </HBox.margin>
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <HBox alignment="CENTER" prefHeight="100.0">
+                            <TextField fx:id="filePathSolution" editable="false" />
+                            <Button fx:id="browseFileSolution" mnemonicParsing="false" onMouseClicked="#browseFileSolution" text="Выбрать файл" />
+                        </HBox>
+                        <Label text="Номер листа с выгрузкой">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="sheetNumberSolution" onMouseClicked="#debug">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </ChoiceBox>
+                        <Label text="Кол-во слов по порядку" />
+                        <ChoiceBox fx:id="countWord" onMouseClicked="#debug">
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </ChoiceBox>
+                    </VBox>
+                    <StackPane style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
+                        <padding>
+                            <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <Button fx:id="startSolution" mnemonicParsing="false" onMouseClicked="#startAnalyticsSolution" text="Загрузить" />
+                    </StackPane>
+                    <TableView fx:id="tableKeyWordSolution" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="countSolution" prefWidth="75.0" text="Количество" />
+                            <TableColumn fx:id="wordSolution" prefWidth="75.0" text="Слово" />
+                        </columns>
+                        <HBox.margin>
+                            <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                    </TableView>
+                </HBox>
+            </center>
+        </BorderPane>
+    </Tab>
+</TabPane>
